@@ -1,8 +1,3 @@
-ARDUINO_BUILDER ?= arduino-builder
-ifeq ($(ARDUINO_BUILDER),)
-    $(error [ARDUINO_BUILDER] Missing value)
-endif
-
 PROJ_NAME    := arduino-core
 PROJ_TYPE    := lib
 PROJ_VERSION := 1.8.5
@@ -35,4 +30,5 @@ INCLUDE_DIRS += libraries/Wire/src
 
 EXTRA_DIST_FILES += $(foreach libHeader,$(LIB_HEADERS),$(libHeader):include/arduino/libs/$(notdir $(libHeader)))
 
-include $(ARDUINO_BUILDER)/builder.mk
+include builder/arduino-builder/layers.mk
+include builder/cpp-project-builder/builder.mk
