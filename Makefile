@@ -30,5 +30,8 @@ INCLUDE_DIRS += libraries/Wire/src
 
 EXTRA_DIST_FILES += $(foreach libHeader,$(LIB_HEADERS),$(libHeader):include/$(notdir $(libHeader)))
 
-include builder/arduino-builder/layers.mk
-include builder/cpp-project-builder/builder.mk
+ARDUINO_BUILDER     ?= builder/arduino-builder
+CPP_PROJECT_BUILDER ?= builder/cpp-project-builder
+
+include $(ARDUINO_BUILDER)/layers.mk
+include $(CPP_PROJECT_BUILDER)/builder.mk
