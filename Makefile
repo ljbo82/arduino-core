@@ -11,7 +11,7 @@ SRC_DIRS += libraries
 CORE_HEADERS += $(shell find cores/arduino -type f -name *.h -and -not -name *_private.h)
 CORE_HEADERS += variants/$(ARDUINO_VARIANT)/pins_arduino.h
 
-EXTRA_DIST_FILES += $(foreach coreHeader,$(CORE_HEADERS),$(coreHeader):include/$(notdir $(coreHeader)))
+DIST_FILES += $(foreach coreHeader,$(CORE_HEADERS),$(coreHeader):include/$(notdir $(coreHeader)))
 
 LIB_HEADERS += libraries/EEPROM/src/EEPROM.h
 INCLUDE_DIRS += libraries/EEPROM/src
@@ -28,10 +28,10 @@ INCLUDE_DIRS += libraries/SPI/src
 LIB_HEADERS += libraries/Wire/src/Wire.h
 INCLUDE_DIRS += libraries/Wire/src
 
-EXTRA_DIST_FILES += $(foreach libHeader,$(LIB_HEADERS),$(libHeader):include/$(notdir $(libHeader)))
+DIST_FILES += $(foreach libHeader,$(LIB_HEADERS),$(libHeader):include/$(notdir $(libHeader)))
 
-ARDUINO_BUILDER     ?= builder/arduino-builder
-CPP_PROJECT_BUILDER ?= builder/cpp-project-builder
+ARDUINO_BUILDER     ?= make/arduino-builder
+CPP_PROJECT_BUILDER ?= make/cpp-project-builder-core
 
 include $(ARDUINO_BUILDER)/layers.mk
 include $(CPP_PROJECT_BUILDER)/builder.mk
