@@ -58,7 +58,7 @@ yun.build.extra_flags={build.usb_flags}
 
 ##############################################################
 
-uno.name=Arduino Uno
+uno.name=Arduino UNO
 
 uno.vid.0=0x2341
 uno.pid.0=0x0043
@@ -68,6 +68,8 @@ uno.vid.2=0x2A03
 uno.pid.2=0x0043
 uno.vid.3=0x2341
 uno.pid.3=0x0243
+uno.vid.4=0x2341
+uno.pid.4=0x006A
 uno.upload_port.0.vid=0x2341
 uno.upload_port.0.pid=0x0043
 uno.upload_port.1.vid=0x2341
@@ -76,7 +78,9 @@ uno.upload_port.2.vid=0x2A03
 uno.upload_port.2.pid=0x0043
 uno.upload_port.3.vid=0x2341
 uno.upload_port.3.pid=0x0243
-uno.upload_port.4.board=uno
+uno.upload_port.4.vid=0x2341
+uno.upload_port.4.pid=0x006A
+uno.upload_port.5.board=uno
 
 uno.upload.tool=avrdude
 uno.upload.tool.default=avrdude
@@ -103,7 +107,7 @@ uno.build.variant=standard
 
 ##############################################################
 
-unomini.name=Arduino Uno Mini
+unomini.name=Arduino UNO Mini
 
 unomini.vid.0=0x2341
 unomini.pid.0=0x0062
@@ -1268,7 +1272,7 @@ one.build.extra_flags={build.usb_flags}
 
 ##############################################################
 
-unowifi.name=Arduino Uno WiFi
+unowifi.name=Arduino UNO WiFi
 unowifi.vid.0=0x2A03
 unowifi.pid.0=0x0057
 unowifi.upload_port.0.vid=0x2A03
