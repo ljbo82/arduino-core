@@ -23,15 +23,30 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME    := arduino-core
-PROJ_TYPE    := lib
-PROJ_VERSION := 1.8.6
-LIB_NAME     := arduino
+coreDir := hosts/arduino/avr/lib
 
-HOST ?= arduino-avr-uno
+SRC_DIRS += $(coreDir)/cores/arduino
+SRC_DIRS += $(coreDir)/libraries
 
-ARDUINO_BUILDER     ?= make/arduino-builder
-CPP_PROJECT_BUILDER ?= make/cpp-project-builder-core
+INCLUDE_DIRS += $(coreDir)/variants/$(ARDUINO_VARIANT)
 
-include $(ARDUINO_BUILDER)/layers.mk
-include $(CPP_PROJECT_BUILDER)/project.mk
+CORE_HEADERS += $(shell find $(coreDir)/cores/arduino -type f -name *.h -and -not -name *_private.h)
+CORE_HEADERS += $(coreDir)/variants/$(ARDUINO_VARIANT)/pins_arduino.h
+DIST_FILES += $(foreach coreHeader,$(CORE_HEADERS),$(coreHeader):include/$(notdir $(coreHeader)))
+
+LIB_HEADERS += $(coreDir)/libraries/EEPROM/src/EEPROM.h
+INCLUDE_DIRS += $(coreDir)/libraries/EEPROM/src
+
+LIB_HEADERS += $(coreDir)/libraries/HID/src/HID.h
+INCLUDE_DIRS += $(coreDir)/libraries/HID/src
+
+LIB_HEADERS += $(coreDir)/libraries/SoftwareSerial/src/SoftwareSerial.h
+INCLUDE_DIRS += $(coreDir)/libraries/SoftwareSerial/src
+
+LIB_HEADERS += $(coreDir)/libraries/SPI/src/SPI.h
+INCLUDE_DIRS += $(coreDir)/libraries/SPI/src
+
+LIB_HEADERS += $(coreDir)/libraries/Wire/src/Wire.h
+INCLUDE_DIRS += $(coreDir)/libraries/Wire/src
+
+DIST_FILES += $(foreach libHeader,$(LIB_HEADERS),$(libHeader):include/$(notdir $(libHeader)))
