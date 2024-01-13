@@ -31,8 +31,6 @@ HOST ?= arduino-avr-uno
 
 LIBS += arduino:../..
 
-ARDUINO_BUILDER          ?= ../../make/arduino-builder
-CPP_PROJECT_BUILDER_CORE ?= ../../make/cpp-project-builder-core
+include ../../make/arduino-builder/layers.mk
+include ../../make/cpp-project-builder-core/project.mk
 
-include $(ARDUINO_BUILDER)/layers.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
