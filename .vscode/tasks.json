@@ -1,0 +1,37 @@
+{
+	"version": "2.0.0",
+	"inputs": [
+		{
+			"id": "arduinoUnoSerialPort",
+			"type": "promptString",
+			"description": "Enter the serial port where Arduino UNO is connected",
+			"default": "/dev/ttyACM0"
+		}
+	],
+	"tasks": [
+		{
+			"label": "build-demo",
+			"detail": "Build demo application for UNO board",
+			"type": "shell",
+			"options": { "cwd": "demo/blink" },
+			"command": "make V=1 O=../../output/vscode/demo/blink",
+			"group": "build"
+		},
+		{
+			"label": "clean",
+			"detail": "Clear source tree",
+			"type": "shell",
+			"options": { "cwd": "." },
+			"command": "make clean V=1",
+			"group": "build"
+		},
+		{
+			"label": "flash-demo",
+			"detail": "Build and upload demo application",
+			"type": "shell",
+			"options": { "cwd": "demo/blink" },
+			"command": "make V=1 upload PORT=${input:arduinoUnoSerialPort} O=../../output/vscode/demo/blink",
+			"group": "build"
+		}
+	]
+}

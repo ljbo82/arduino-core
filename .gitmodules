@@ -1,0 +1,9 @@
+[submodule "make/cpp-project-builder-core"]
+	path = make/cpp-project-builder-core
+	url = https://github.com/ljbo82/cpp-project-builder-core.git
+[submodule "make/arduino-builder"]
+	path = make/arduino-builder
+	url = https://github.com/ljbo82/arduino-builder.git
+[submodule "hosts/arduino/avr/lib"]
+	path = hosts/arduino/avr/lib
+	url = https://github.com/arduino/ArduinoCore-avr.git

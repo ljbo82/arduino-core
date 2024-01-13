@@ -1,0 +1,28 @@
+{
+	"configurations": [
+		{
+			"name": "arduino-avr-uno",
+			"includePath": [
+				"${workspaceFolder}/hosts/arduino/avr/lib/cores/arduino",
+				"${workspaceFolder}/hosts/arduino/avr/lib/variants/standard",
+                "${workspaceFolder}/hosts/arduino/avr/lib/libraries/EEPROM/src",
+				"${workspaceFolder}/hosts/arduino/avr/lib/libraries/HID/src",
+				"${workspaceFolder}/hosts/arduino/avr/lib/libraries/SoftwareSerial/src",
+				"${workspaceFolder}/hosts/arduino/avr/lib/libraries/SPI/src",
+				"${workspaceFolder}/hosts/arduino/avr/lib/libraries/Wire/src"
+			],
+			"compilerArgs": ["-mmcu=atmega328p"],
+			"defines": [
+				"F_CPU=16000000L",
+				"ARDUINO_UNO",
+				"ARDUINO_ARCH_AVR"
+			],
+			"compilerPath": "/opt/gcc-avr/bin/avr-gcc",
+			"cStandard": "gnu11",
+			"cppStandard": "gnu++11",
+			"intelliSenseMode": "${default}",
+			"configurationProvider": "ms-vscode.makefile-tools"
+		}
+	],
+	"version": 4
+}
