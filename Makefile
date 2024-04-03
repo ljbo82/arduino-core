@@ -25,8 +25,6 @@
 
 PROJ_NAME    := arduino-core
 PROJ_TYPE    := lib
-PROJ_VERSION := 1.8.6
-LIB_NAME     := arduino
 
 HOST ?= arduino-avr-uno
 
