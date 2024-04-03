@@ -30,5 +30,16 @@ LIB_NAME     := arduino
 
 HOST ?= arduino-avr-uno
 
-include make/arduino-builder/layers.mk
-include make/cpp-project-builder-core/project.mk
+ifeq ($(ARDUINO_BUILDER),)
+    $(error [ARDUINO_BUILDER] Missing value)
+endif
+
+ifeq ($(CPB_DIR),)
+    $(error [CPB_DIR] Missing value)
+endif
+
+CPB_MIN_DIR = 0.1.0
+ARDUINO_BUILDER_MIN_VERSION = 0.1.0
+
+include $(ARDUINO_BUILDER)/builder.mk
+include $(CPB_DIR)/builder.mk
